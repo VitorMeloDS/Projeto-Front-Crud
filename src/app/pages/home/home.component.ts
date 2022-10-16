@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { HomeServices } from './../../../services/home/home.service';
+import { Component } from '@angular/core';
 import { Book } from 'src/app/interfaces/book';
 
 @Component({
@@ -7,12 +8,26 @@ import { Book } from 'src/app/interfaces/book';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
-  // protected books: Book;
+  protected books?: Book[];
+  protected mostrar: boolean = false;
 
-  constructor() { }
+  constructor(
+    private homeSvc: HomeServices
+    ) { }
 
   ngOnInit() {
+    this.homeSvc.getAll('/book').subscribe({
+      next: (data) => {
+        this.books = data;
+      },
+      error: (err) => {
+          console.log(err.message);
+      },
+    })
+  }
 
+  acaoPrimaria() {
+    this.mostrar = !this.mostrar;
   }
 
 }
