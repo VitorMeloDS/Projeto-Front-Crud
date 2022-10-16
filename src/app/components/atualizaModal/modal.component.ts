@@ -19,6 +19,7 @@ export class ModalComponent {
     private atualizaSrv: AtualizaBookService
   ) {}
 
+  // * Monta o formControl 
   ngOnInit() {
     this.formAtualizaBook = this.formBuilder.group({
       _id: [this.book?._id],
@@ -31,11 +32,13 @@ export class ModalComponent {
     });
   }
 
+  // * Desabilita e habilita o modal
   toggle () {
     this.mostrar = !this.mostrar;
   }
 
-  protected acaoPrimaria() {
+  // * Método responsável pela atualização do livro
+  protected atualizar() {
     console.log(this.formAtualizaBook.value);
     this.atualizaSrv.putBook('/book', this.formAtualizaBook.value).subscribe({
       next: () => {
