@@ -11,12 +11,11 @@ import { HomeServices } from './../services/home/home.service';
 import { AtualizaBookService } from 'src/services/atualizarBook/atualizarBook.service';
 
 import { ModalModule } from './components/atualizaModal/modal.module';
-import { DeletarModalComponent } from './components/deletar-modal/deletar-modal.component';
+import { DeletarModalModule } from './components/deletar-modal/deletar-modal.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DeletarModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -24,7 +23,8 @@ import { DeletarModalComponent } from './components/deletar-modal/deletar-modal.
     ReactiveFormsModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    ModalModule
+    ModalModule,
+    DeletarModalModule
   ],
   providers: [
     HomeServices,

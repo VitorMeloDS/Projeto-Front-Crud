@@ -82,17 +82,19 @@
 
           <!-- Botões para deletar e atualizar o livro -->
           <div class="flex justify-between">
-            <button (click)="modal.toggle()" class="px-6 py-2 mt-10 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-green-600 rounded-md hover:bg-green-500 focus:outline-none focus:ring focus:ring-green-300 focus:ring-opacity-80">
+            <button (click)="atualizar.toggle()" class="px-6 py-2 mt-10 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-green-600 rounded-md hover:bg-green-500 focus:outline-none focus:ring focus:ring-green-300 focus:ring-opacity-80">
               Atualizar
             </button>
-            <button class="px-6 py-2 mt-10 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-red-600 rounded-md hover:bg-red-500 focus:outline-none focus:ring focus:ring-red-300 focus:ring-opacity-80">
+            <button (click)="deletar.toggle()" class="px-6 py-2 mt-10 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-red-600 rounded-md hover:bg-red-500 focus:outline-none focus:ring focus:ring-red-300 focus:ring-opacity-80">
               Deletar
             </button>
           </div>
         </div>
 
         <!-- Modal para atualizar o livro -->
-        <atualiza-modal #modal [book]="book"></atualiza-modal>
+        <atualiza-modal #atualizar [book]="book"></atualiza-modal>
+
+        <deletar-modal #deletar></deletar-modal>
       </div>
     </div>
   </div>
