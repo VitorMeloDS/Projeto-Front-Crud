@@ -8,12 +8,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { HomeServices } from './../services/home/home.service';
+import { AtualizaBookService } from 'src/services/atualizarBook/atualizarBook.service';
 
-import { ModalModule } from './components/modal/modal.module';
+import { ModalModule } from './components/atualizaModal/modal.module';
+import { DeletarModalComponent } from './components/deletar-modal/deletar-modal.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    DeletarModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -24,7 +27,8 @@ import { ModalModule } from './components/modal/modal.module';
     ModalModule
   ],
   providers: [
-    HomeServices
+    HomeServices,
+    AtualizaBookService
   ],
   bootstrap: [AppComponent]
 })
