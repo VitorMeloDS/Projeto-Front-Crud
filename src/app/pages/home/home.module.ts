@@ -4,7 +4,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
 import { HomeComponent } from './home.component';
-import { ModalModule } from 'src/app/components/modal/modal.module';
+import { ModalModule } from 'src/app/components/atualizaModal/modal.module';
 
 @NgModule({
   imports: [

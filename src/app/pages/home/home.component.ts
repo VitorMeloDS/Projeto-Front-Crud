@@ -15,19 +15,17 @@ export class HomeComponent {
     private homeSvc: HomeServices
     ) { }
 
+  // * Toda vez que a página é inicializada essa função busca os dados dos livros
   ngOnInit() {
     this.homeSvc.getAll('/book').subscribe({
       next: (data) => {
         this.books = data;
       },
       error: (err) => {
-          console.log(err.message);
+        console.log(err.message);
+        alert(err.message);
       },
     })
-  }
-
-  acaoPrimaria() {
-    this.mostrar = !this.mostrar;
   }
 
 }

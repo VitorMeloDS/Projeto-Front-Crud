@@ -1,4 +1,5 @@
 <section>
+  <!-- Barra de Navegação -->
   <nav x-data="{ isOpen: false }" class="bg-white shadow dark:bg-gray-800">
     <div class="container px-6 py-4 mx-auto">
       <div class="lg:flex lg:items-center">
@@ -54,26 +55,12 @@
       </h1>
     </div>
 
-    <app-modal #modal>
-      <div class="flex justify-between">
-        <button
-          (click)="acaoPrimaria(); modal.toggle();"
-          class="px-6 py-2 mt-10 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-md hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80">
-          Atualizar
-        </button>
-        <button
-          class="px-6 py-2 mt-10 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-red-600 rounded-md hover:bg-red-500 focus:outline-none focus:ring focus:ring-red-300 focus:ring-opacity-80">
-          Cancelar
-        </button>
-      </div>
-    </app-modal>
-
     <div class="grid grid-cols-1 gap-8 mt-8 lg:grid-cols-2">
+      <!-- Loop responsavel por mostrar todos os livros -->
       <div *ngFor="let book of books">
         <img class="relative z-10 object-cover w-full rounded-md h-96"
-          src="https://images.unsplash.com/photo-1644018335954-ab54c83e007f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
-          alt="">
-
+          src="../../../assets/livro.webp"
+          alt="livro">
         <div class="relative z-20 max-w-lg px-6 py-4 mx-auto -mt-20 bg-white rounded-md shadow dark:bg-gray-900">
           <div class="py-3">
             <h1 class="text-xl font-semibold text-gray-800 dark:text-white">
@@ -92,6 +79,8 @@
             </div>
           </div>
           <p class="mt-3 text-sm text-blue-500">Ano de lançamento: {{ book.ano_lancamento }}</p>
+
+          <!-- Botões para deletar e atualizar o livro -->
           <div class="flex justify-between">
             <button (click)="modal.toggle()" class="px-6 py-2 mt-10 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-green-600 rounded-md hover:bg-green-500 focus:outline-none focus:ring focus:ring-green-300 focus:ring-opacity-80">
               Atualizar
@@ -101,6 +90,9 @@
             </button>
           </div>
         </div>
+
+        <!-- Modal para atualizar o livro -->
+        <atualiza-modal #modal [book]="book"></atualiza-modal>
       </div>
     </div>
   </div>

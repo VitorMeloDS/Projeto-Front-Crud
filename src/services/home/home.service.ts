@@ -5,7 +5,6 @@ import { Config } from '../config';
 
 @Injectable()
 export class HomeServices {
-  public usuario: any;
   private config?: Config;
   options: any;
   url_serve!: string;
