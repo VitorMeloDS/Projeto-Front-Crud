@@ -1,4 +1,4 @@
-import { AtualizaBookService } from './../../../services/atualizarBook/atualizarBook.service';
+import { AtualizaBookService } from '../../../services/atualizarBook/atualizarBook.service';
 import { Component, Input } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Book } from 'src/app/interfaces/book';

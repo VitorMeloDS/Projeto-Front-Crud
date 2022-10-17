@@ -10,8 +10,9 @@ import { AppComponent } from './app.component';
 import { HomeServices } from './../services/home/home.service';
 import { AtualizaBookService } from 'src/services/atualizarBook/atualizarBook.service';
 
-import { ModalModule } from './components/atualizaModal/modal.module';
+import { ModalModule } from './components/atualizar-modal/modal.module';
 import { DeletarModalModule } from './components/deletar-modal/deletar-modal.module';
+import { CriarModalModule } from './components/criar-modal/criar-modal.module';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { DeletarModalModule } from './components/deletar-modal/deletar-modal.mod
     BrowserAnimationsModule,
     HttpClientModule,
     ModalModule,
-    DeletarModalModule
+    DeletarModalModule,
+    CriarModalModule
   ],
   providers: [
     HomeServices,

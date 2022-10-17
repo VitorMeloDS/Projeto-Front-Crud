@@ -5,7 +5,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
 import { HomeComponent } from './home.component';
-import { ModalModule } from 'src/app/components/atualizaModal/modal.module';
+import { ModalModule } from 'src/app/components/atualizar-modal/modal.module';
+import { CriarModalModule } from 'src/app/components/criar-modal/criar-modal.module';
 
 @NgModule({
   imports: [
@@ -13,6 +14,7 @@ import { ModalModule } from 'src/app/components/atualizaModal/modal.module';
     ModalModule,
     DeletarModalModule,
     ReactiveFormsModule,
+    CriarModalModule,
     RouterModule.forChild([
       {
         path: '',

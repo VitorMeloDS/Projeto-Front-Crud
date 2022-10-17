@@ -91,17 +91,20 @@
           </div>
         </div>
 
+        <div class="fixed z-[999]">
+          <div class="absolute bottom-0 left-0">
+            <button (click)="criar.toggle()" class="back-to-top fixed bottom-8 right-8 left-auto z-[999] shadow-md ease-in-out px-6 py-2 mt-10 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-green-600 rounded-md hover:bg-green-500 focus:outline-none focus:ring focus:ring-green-300 focus:ring-opacity-80">Criar</button>
+          </div>
+        </div>
+
         <!-- Modal para atualizar o livro -->
         <atualiza-modal #atualizar [book]="book"></atualiza-modal>
         <!-- Modal para deletar o livro -->
         <deletar-modal #deletar [bookName]="book.titulo"></deletar-modal>
+        <!-- Modal para criar o livro -->
+        <criar-modal #criar></criar-modal>
       </div>
       
-      <div class="fixed z-[500]">
-        <div class="absolute bottom-0 left-0">
-          <button class="back-to-top fixed bottom-8 right-8 left-auto z-[999] shadow-md ease-in-out px-6 py-2 mt-10 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-green-600 rounded-md hover:bg-green-500 focus:outline-none focus:ring focus:ring-green-300 focus:ring-opacity-80">Criar</button>
-        </div>
-      </div>
     </div>
   </div>
 </section>
