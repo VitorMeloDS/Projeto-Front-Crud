@@ -1,16 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'deletar-modal',
   templateUrl: './deletar-modal.component.html',
   styleUrls: ['./deletar-modal.component.scss']
 })
-export class DeletarModalComponent implements OnInit {
+export class DeletarModalComponent {
   protected mostrar: boolean = false;
+
+  @Input() bookName: string = '';
 
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit() {
   }
 
   // * Desabilita e habilita o modal

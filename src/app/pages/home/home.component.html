@@ -1,6 +1,6 @@
 <section>
   <!-- Barra de Navegação -->
-  <nav x-data="{ isOpen: false }" class="bg-white shadow dark:bg-gray-800">
+  <nav class="bg-white shadow dark:bg-gray-800">
     <div class="container px-6 py-4 mx-auto">
       <div class="lg:flex lg:items-center">
         <div class="flex items-center justify-between">
@@ -10,12 +10,12 @@
           </div>
         </div>
 
-        <div x-cloak :class="[isOpen ? 'translate-x-0 opacity-100 ' : 'opacity-0 -translate-x-full']"
+        <div
           class="absolute inset-x-0 z-20 flex-1 w-full px-6 py-4 transition-all duration-300 ease-in-out bg-white dark:bg-gray-800 lg:mt-0 lg:p-0 lg:top-0 lg:relative lg:bg-transparent lg:w-auto lg:opacity-100 lg:translate-x-0 lg:flex lg:items-center lg:justify-between">
           <div
             class="flex flex-col text-gray-600 capitalize dark:text-gray-300 lg:flex lg:px-16 lg:-mx-4 lg:flex-row lg:items-center">
-            <a href="#"
-              class="mt-2 transition-colors duration-300 transform lg:mt-0 lg:mx-4 hover:text-gray-900 dark:hover:text-gray-200">docs</a>
+            <a href="https://github.com/VitorMeloDS/Projeto-Front-Crud" target="_blank"
+              class="mt-2 transition-colors duration-300 transform lg:mt-0 lg:mx-4 hover:text-gray-900 dark:hover:text-gray-200">Documentos</a>
             <div class="relative mt-4 lg:mt-0 lg:mx-4">
               <span class="absolute inset-y-0 left-0 flex items-center pl-3">
                 <svg class="w-4 h-4 text-gray-600 dark:text-gray-300" viewBox="0 0 24 24" fill="none">
@@ -30,7 +30,7 @@
             </div>
           </div>
           <div class="flex justify-center mt-6 lg:flex lg:mt-0 lg:-mx-2">
-            <a href="#"
+            <a href="https://github.com/VitorMeloDS/Projeto-Front-Crud" target="_blank"
               class="mx-2 text-gray-600 transition-colors duration-300 transform dark:text-gray-300 hover:text-gray-500 dark:hover:text-gray-300"
               aria-label="Github">
               <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -82,7 +82,7 @@
 
           <!-- Botões para deletar e atualizar o livro -->
           <div class="flex justify-between">
-            <button (click)="atualizar.toggle()" class="px-6 py-2 mt-10 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-green-600 rounded-md hover:bg-green-500 focus:outline-none focus:ring focus:ring-green-300 focus:ring-opacity-80">
+            <button (click)="atualizar.toggle()" class="px-6 py-2 mt-10 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-md hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80">
               Atualizar
             </button>
             <button (click)="deletar.toggle()" class="px-6 py-2 mt-10 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-red-600 rounded-md hover:bg-red-500 focus:outline-none focus:ring focus:ring-red-300 focus:ring-opacity-80">
@@ -93,8 +93,14 @@
 
         <!-- Modal para atualizar o livro -->
         <atualiza-modal #atualizar [book]="book"></atualiza-modal>
-
-        <deletar-modal #deletar></deletar-modal>
+        <!-- Modal para deletar o livro -->
+        <deletar-modal #deletar [bookName]="book.titulo"></deletar-modal>
+      </div>
+      
+      <div class="fixed z-[500]">
+        <div class="absolute bottom-0 left-0">
+          <button class="back-to-top fixed bottom-8 right-8 left-auto z-[999] shadow-md ease-in-out px-6 py-2 mt-10 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-green-600 rounded-md hover:bg-green-500 focus:outline-none focus:ring focus:ring-green-300 focus:ring-opacity-80">Criar</button>
+        </div>
       </div>
     </div>
   </div>
