@@ -1,4 +1,4 @@
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { HomeServices } from './../../../services/home/home.service';
 import { Component } from '@angular/core';
 import { Book } from 'src/app/interfaces/book';
@@ -18,12 +18,32 @@ export class HomeComponent {
     private formBuilder: FormBuilder
     ) { }
 
-  // * Toda vez que a página é inicializada essa função busca os dados dos livros
-  ngOnInit() {
+  // * Initialized every time the page is launched
+  protected async ngOnInit() {
     this.formSearchBook = this.formBuilder.group({
-      search: ['']
+      search: ['', Validators.required]
     });
+    await this.loadBook();
+  }
 
+  // * Search books
+  protected async search() {
+    let searchBook: Book[] = [];
+    if (this.formSearchBook.controls['search'].value) {
+      for (const book of this.books) {
+        if (book.titulo.toLocaleLowerCase().includes(this.formSearchBook.controls['search'].value.toLocaleLowerCase())){
+          searchBook?.push(book);
+        }
+      }
+    }
+    this.books = searchBook;
+    if (!this.formSearchBook.controls['search'].value) {
+      await this.loadBook();
+    }
+  }
+
+  // * Load Books for page
+  private async loadBook() {
     this.homeSvc.getAll('/book').subscribe({
       next: (data) => {
         this.books = data;
@@ -33,22 +53,6 @@ export class HomeComponent {
         alert(err.message);
       },
     })
-  }
-
-  protected search() {
-    let searchBook: Book[] = [];
-    if (this.formSearchBook.controls['search'].value) {
-      for (const book of this.books) {
-        if (book.titulo.toLocaleLowerCase().includes(this.formSearchBook.controls['search'].value.toLocaleLowerCase())){
-          searchBook?.push(book);
-        }
-      }
-    }
-    if (searchBook)
-      this.books = searchBook;
-    if (!this.formSearchBook.controls['search'].value) {
-      this.ngOnInit();
-    }
   }
 
 }

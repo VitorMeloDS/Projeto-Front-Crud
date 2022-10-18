@@ -3,7 +3,7 @@
   <nav class="bg-white shadow dark:bg-gray-800">
     <div class="container px-6 py-4 mx-auto">
       <div class="lg:flex lg:items-center">
-        <div class="flex items-center justify-between">
+        <div class="flex items-center sm:justify-between">
           <div>
             <a class="text-2xl font-bold text-gray-800 transition-colors duration-300 transform dark:text-white lg:text-3xl hover:text-gray-700 dark:hover:text-gray-300"
               href="#">Livros</a>
@@ -16,7 +16,7 @@
             class="flex flex-col text-gray-600 capitalize dark:text-gray-300 lg:flex lg:px-16 lg:-mx-4 lg:flex-row lg:items-center">
             <a href="https://github.com/VitorMeloDS/Projeto-Front-Crud" target="_blank"
               class="mt-2 transition-colors duration-300 transform lg:mt-0 lg:mx-4 hover:text-gray-900 dark:hover:text-gray-200">Documentos</a>
-            <div class="relative mt-4 lg:mt-0 lg:mx-4">
+            <div class="relative mt-4 lg:mt-0 lg:mx-4 sm:mt-2">
               <span class="absolute inset-y-0 left-0 flex items-center pl-3">
                 <svg class="w-4 h-4 text-gray-600 dark:text-gray-300" viewBox="0 0 24 24" fill="none">
                   <path
@@ -24,11 +24,11 @@
                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
                 </svg>
               </span>
-              <form [formGroup]="formSearchBook" (ngSubmit)="search()">
+              <form class="w-full max-w-lg flex items-center" [formGroup]="formSearchBook" (ngSubmit)="search()">
                 <input type="search" formControlName="search"
                   class="w-full py-1 pl-10 pr-4 text-gray-700 placeholder-gray-600 bg-white border-b border-gray-600 dark:placeholder-gray-300 dark:focus:border-gray-300 lg:w-56 lg:border-transparent dark:bg-gray-800 dark:text-gray-300 focus:outline-none focus:border-gray-600"
                   placeholder="Search" />
-                  <button [disabled]="!formSearchBook.valid"
+                  <button
                   type="submit"
                   class="px-3 py-1 ml-4 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-gray-600 rounded-md hover:bg-teal-900 focus:outline-none focus:ring focus:ring-teal-600 focus:ring-opacity-80">
                   Buscar
@@ -111,7 +111,7 @@
         <!-- Modal para criar o livro -->
         <criar-modal #criar></criar-modal>
       </div>
-      
+
     </div>
   </div>
 </section>
