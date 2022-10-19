@@ -39,7 +39,6 @@ export class ModalComponent {
 
   // * Método responsável pela atualização do livro
   protected atualizar() {
-    console.log(this.formAtualizaBook.value);
     this.atualizaSrv.putBook('/book', this.formAtualizaBook.value).subscribe({
       next: () => {
         this.mostrar = !this.mostrar;
@@ -50,7 +49,6 @@ export class ModalComponent {
         alert(err.message);
       },
     })
-
   }
 
 

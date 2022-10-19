@@ -16,6 +16,7 @@ import { DeleteBookService } from 'src/services/delete-book/deleteBook.service';
 import { ModalModule } from './components/atualizar-modal/modal.module';
 import { DeletarModalModule } from './components/deletar-modal/deletar-modal.module';
 import { CriarModalModule } from './components/criar-modal/criar-modal.module';
+import { CreateaBookService } from 'src/services/crerate-book/createBook.service';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { CriarModalModule } from './components/criar-modal/criar-modal.module';
   providers: [
     HomeServices,
     AtualizaBookService,
-    DeleteBookService
+    DeleteBookService,
+    CreateaBookService
   ],
   bootstrap: [AppComponent]
 })

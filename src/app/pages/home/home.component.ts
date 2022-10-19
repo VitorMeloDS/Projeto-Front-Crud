@@ -12,6 +12,7 @@ export class HomeComponent {
   protected books: Book[] = [];
   protected mostrar: boolean = false;
   protected formSearchBook!: FormGroup;
+  protected booksLength!: number;
 
   constructor(
     private homeSvc: HomeServices,
@@ -47,6 +48,7 @@ export class HomeComponent {
     this.homeSvc.getAll('/book').subscribe({
       next: (data) => {
         this.books = data;
+        this.booksLength = this.books.length;
       },
       error: (err) => {
         console.log(err.message);
