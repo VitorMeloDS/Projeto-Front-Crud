@@ -1,6 +1,6 @@
 <section>
   <!-- Barra de Navegação -->
-  <nav class="bg-white shadow dark:bg-gray-800">
+  <nav class="bg-gray-200 shadow dark:bg-gray-800">
     <div class="container px-6 py-4 mx-auto">
       <div class="lg:flex lg:items-center">
         <div class="flex items-center sm:justify-between">
@@ -62,20 +62,23 @@
       </h1>
     </div>
 
-    <div class="grid grid-cols-1 gap-8 mt-8 lg:grid-cols-2">
+    <div class="grid grid-cols-1 gap-8 mt-8 lg:grid-cols-2 transition-colors">
       <!-- Loop responsável por mostrar todos os livros -->
       <div *ngFor="let book of books">
-        <img class="relative z-10 object-cover w-full rounded-md h-96"
+        <img class="relative z-10 object-cover w-full rounded-md h-96 opacity-70"
           src="../../../assets/livro.webp"
           alt="livro">
-        <div class="relative z-20 max-w-lg px-6 py-4 mx-auto -mt-20 bg-white rounded-md shadow dark:bg-gray-900">
+        <div class="relative z-20 max-w-lg px-6 py-4 mx-auto -mt-20 bg-gray-200 rounded-md shadow dark:bg-gray-800">
           <div class="py-3">
             <h1 class="text-xl font-semibold text-gray-800 dark:text-white">
               {{ book.titulo }}
             </h1>
-            <p class="py-2 text-gray-700 dark:text-gray-400">
-              {{ book.resumo }}
-            </p>
+
+            <p *ngIf="book.resumo.length > 180" class="py-2 text-gray-700 dark:text-gray-400 more morelink">{{book.resumo | slice: 0:180}}{{lerMais == book.id ? '' : ' ...'}}{{ lerMais == book.id ? (book.resumo | slice: 181) : ''}}</p>
+            <p *ngIf="book.resumo.length <= 180" class="py-2 text-gray-700 dark:text-gray-400 more morelink">{{book.resumo}}</p>
+            <button *ngIf="lerMais != book.id && book.resumo.length > 180" (click)="mostarMais(book.id)" class="text-blue-800 dark:text-blue-600">Ler mais</button>
+            <button *ngIf="lerMais == book.id && book.resumo.length > 180" (click)="mostarMenos(book.id)" class="text-blue-800 dark:text-blue-600">Ler menos</button>
+
             <div class="flex items-center mt-4 text-gray-700 dark:text-gray-200">
               <img src="../../../assets/icons8-conta-de-teste-16.png" alt="autor">
               <h1 class="px-2 text-sm">Autor: {{ book.autor }}</h1>

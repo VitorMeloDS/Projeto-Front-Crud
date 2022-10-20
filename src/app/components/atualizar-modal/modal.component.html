@@ -1,16 +1,16 @@
 <ng-container *ngIf="mostrar">
-  <div class="modal">
-    <h1 class="text-center pb-10 text-2xl">Atualizar {{book?.titulo}}</h1>
+  <div class="bg-white dark:bg-gray-900 modal">
+    <h1 class="text-gray-700 dark:text-gray-100 text-center pb-10 text-2xl">Atualizar {{book?.titulo}}</h1>
     <form [formGroup]="formAtualizaBook" (ngSubmit)="atualizar()" class="w-full max-w-lg">
       <div class="flex flex-wrap -mx-3 mb-6">
         <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-          <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2" for="titulo">
+          <label class="block uppercase tracking-wide text-gray-700 dark:text-gray-400 text-xs font-bold mb-2" for="titulo">
             título:
           </label>
           <input requerid formControlName="titulo" class="appearance-none block w-full h-5 bg-gray-200 text-gray-700 border border-gray-20 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="titulo" type="text" placeholder="Título">
         </div>
         <div class="w-full md:w-1/2 px-3">
-          <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2" for="autor">
+          <label class="block uppercase tracking-wide text-gray-700 dark:text-gray-400 text-xs font-bold mb-2" for="autor">
             Autor:
           </label>
           <input requerid formControlName="autor" class="appearance-none block w-full h-5 bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="autor" type="text" placeholder="Autor">
@@ -19,13 +19,13 @@
 
       <div class="flex flex-wrap -mx-3 mb-6">
         <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-          <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2" for="isbn">
+          <label class="block uppercase tracking-wide text-gray-700 dark:text-gray-400 text-xs font-bold mb-2" for="isbn">
             Isbn:
           </label>
           <input requerid formControlName="isbn" class="appearance-none block w-full h-5 bg-gray-200 text-gray-700 border border-gray-20 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="isbn" type="number" placeholder="Isbn">
         </div>
         <div class="w-full md:w-1/2 px-3">
-          <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2" for="resumo">
+          <label class="block uppercase tracking-wide text-gray-700 dark:text-gray-400 text-xs font-bold mb-2" for="resumo">
             Resumo:
           </label>
           <input requerid formControlName="resumo" class="appearance-none block w-full h-5 bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="resumo" type="text" placeholder="Resumo">
@@ -34,7 +34,7 @@
 
       <div class="flex flex-wrap -mx-3 mb-6 justify-center">
         <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-          <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2" for="anoLancamento">
+          <label class="block uppercase tracking-wide text-gray-700 dark:text-gray-400 text-xs font-bold mb-2" for="anoLancamento">
             Ano Lançamento:
           </label>
           <input requerid formControlName="ano_lancamento" class="appearance-none block w-full h-5 bg-gray-200 text-gray-700 border border-gray-20 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="anoLancamento" type="number" placeholder="Ano Lançamento">

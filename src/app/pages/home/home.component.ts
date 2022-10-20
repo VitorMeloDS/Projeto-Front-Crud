@@ -13,6 +13,7 @@ export class HomeComponent {
   protected mostrar: boolean = false;
   protected formSearchBook!: FormGroup;
   protected booksLength!: number;
+  protected lerMais!: any;
 
   constructor(
     private homeSvc: HomeServices,
@@ -55,6 +56,14 @@ export class HomeComponent {
         alert(err.message);
       },
     })
+  }
+
+  protected mostarMais(idBook: number) {
+    this.lerMais = idBook;  
+  }
+
+  protected mostarMenos(idBook: number) {
+    this.lerMais = 0;  
   }
 
 }

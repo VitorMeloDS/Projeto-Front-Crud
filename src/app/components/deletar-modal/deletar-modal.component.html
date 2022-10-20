@@ -1,6 +1,6 @@
 <ng-container *ngIf="mostrar">
-  <div class="modal">
-    <h1 class="text-center pb-10 text-2xl">Deseja deletar {{book?.titulo}}?</h1>
+  <div class="bg-white dark:bg-gray-900 modal">
+    <h1 class="text-gray-700 dark:text-gray-100 text-center pb-10 text-2xl">Deseja deletar {{book?.titulo}}?</h1>
       <div class="flex justify-between">
         <button
           (click)="deleteBook()"
