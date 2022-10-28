@@ -28,8 +28,7 @@
                 <input type="search" formControlName="search"
                   class="w-full py-1 pl-10 pr-4 text-gray-700 placeholder-gray-600 bg-white border-b border-gray-600 dark:placeholder-gray-300 dark:focus:border-gray-300 lg:w-56 lg:border-transparent dark:bg-gray-800 dark:text-gray-300 focus:outline-none focus:border-gray-600"
                   placeholder="Search" />
-                  <button
-                  type="submit"
+                <button type="submit"
                   class="px-3 py-1 ml-4 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-gray-600 rounded-md hover:bg-teal-900 focus:outline-none focus:ring focus:ring-teal-600 focus:ring-opacity-80">
                   Buscar
                 </button>
@@ -55,7 +54,23 @@
 
 
 <section class="bg-white dark:bg-gray-900">
-  <div *ngIf="books" class="container px-6 py-10 mx-auto">
+
+  <div *ngIf="loading" class="loading mt-72 sm:mt80 flex-row justify-center text-center items-center">
+    <h2>Carregando</h2>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <div *ngIf="notSearchBook" class="mt-72 sm:mt80 flex-row justify-center text-center items-center">
+    <h2>Livro não Encontrado!</h2>
+  </div>
+
+  <div *ngIf="books.length > 0" class="container px-6 py-10 mx-auto">
     <div class="text-center">
       <h1 class="text-3xl font-semibold text-gray-800 capitalize lg:text-4xl dark:text-white">
         Livros
@@ -65,9 +80,7 @@
     <div class="grid grid-cols-1 gap-8 mt-8 lg:grid-cols-2">
       <!-- Loop responsável por mostrar todos os livros -->
       <div *ngFor="let book of books">
-        <img class="relative z-10 object-cover w-full rounded-md h-96"
-          src="../../../assets/livro.webp"
-          alt="livro">
+        <img class="relative z-10 object-cover w-full rounded-md h-96" src="../../../assets/livro.webp" alt="livro">
         <div class="relative z-20 max-w-lg px-6 py-4 mx-auto -mt-20 bg-white rounded-md shadow dark:bg-gray-900">
           <div class="py-3">
             <h1 class="text-xl font-semibold text-gray-800 dark:text-white">
@@ -89,10 +102,12 @@
 
           <!-- Botões para deletar e atualizar o livro -->
           <div class="flex justify-between">
-            <button (click)="atualizar.toggle()" class="px-6 py-2 mt-10 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-md hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80">
+            <button (click)="atualizar.toggle()"
+              class="px-6 py-2 mt-10 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-md hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80">
               Atualizar
             </button>
-            <button (click)="deletar.toggle()" class="px-6 py-2 mt-10 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-red-600 rounded-md hover:bg-red-500 focus:outline-none focus:ring focus:ring-red-300 focus:ring-opacity-80">
+            <button (click)="deletar.toggle()"
+              class="px-6 py-2 mt-10 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-red-600 rounded-md hover:bg-red-500 focus:outline-none focus:ring focus:ring-red-300 focus:ring-opacity-80">
               Deletar
             </button>
           </div>
@@ -100,7 +115,8 @@
 
         <div class="fixed z-[999]">
           <div class="absolute bottom-0 left-0">
-            <button (click)="criar.toggle()" class="back-to-top fixed bottom-8 right-8 left-auto z-[999] shadow-md ease-in-out px-6 py-2 mt-10 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-green-600 rounded-md hover:bg-green-500 focus:outline-none focus:ring focus:ring-green-300 focus:ring-opacity-80">Criar</button>
+            <button (click)="criar.toggle()"
+              class="back-to-top fixed bottom-8 right-8 left-auto z-[999] shadow-md ease-in-out px-6 py-2 mt-10 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-green-600 rounded-md hover:bg-green-500 focus:outline-none focus:ring focus:ring-green-300 focus:ring-opacity-80">Criar</button>
           </div>
         </div>
 
@@ -115,4 +131,3 @@
     </div>
   </div>
 </section>
-
