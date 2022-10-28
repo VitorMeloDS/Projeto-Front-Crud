@@ -1,4 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { DeleteBookService } from './../../../services/delete-book/deleteBook.service';
+import { Component, Input } from '@angular/core';
+import { Book } from 'src/app/interfaces/book';
 
 @Component({
   selector: 'deletar-modal',
@@ -8,16 +10,29 @@ import { Component, Input, OnInit } from '@angular/core';
 export class DeletarModalComponent {
   protected mostrar: boolean = false;
 
-  @Input() bookName: string = '';
+  @Input() book?: Book;
 
-  constructor() { }
-
-  ngOnInit() {
-  }
+  constructor(
+    private deleteBookSrv: DeleteBookService
+  ) { }
 
   // * Desabilita e habilita o modal
   toggle () {
     this.mostrar = !this.mostrar;
+  }
+
+  // * Deleta o livro
+  deleteBook() {
+    this.deleteBookSrv.deleteBook('/book', this.book?.id).subscribe({
+      next: () => {
+        this.mostrar = !this.mostrar;
+        window.location.reload();
+      },
+      error: (err) => {
+        console.log(err.message);
+        alert(err.message);
+      },
+    });
   }
 
 }

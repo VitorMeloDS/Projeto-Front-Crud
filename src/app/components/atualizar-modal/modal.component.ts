@@ -1,4 +1,4 @@
-import { AtualizaBookService } from '../../../services/atualizarBook/atualizarBook.service';
+import { AtualizaBookService } from '../../../services/atualizar-book/atualizarBook.service';
 import { Component, Input } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Book } from 'src/app/interfaces/book';
@@ -39,7 +39,6 @@ export class ModalComponent {
 
   // * Método responsável pela atualização do livro
   protected atualizar() {
-    console.log(this.formAtualizaBook.value);
     this.atualizaSrv.putBook('/book', this.formAtualizaBook.value).subscribe({
       next: () => {
         this.mostrar = !this.mostrar;
@@ -50,7 +49,6 @@ export class ModalComponent {
         alert(err.message);
       },
     })
-
   }
 
 

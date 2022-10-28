@@ -7,12 +7,16 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+// * Services
 import { HomeServices } from './../services/home/home.service';
-import { AtualizaBookService } from 'src/services/atualizarBook/atualizarBook.service';
+import { AtualizaBookService } from 'src/services/atualizar-book/atualizarBook.service';
+import { DeleteBookService } from 'src/services/delete-book/deleteBook.service';
 
+// * Components
 import { ModalModule } from './components/atualizar-modal/modal.module';
 import { DeletarModalModule } from './components/deletar-modal/deletar-modal.module';
 import { CriarModalModule } from './components/criar-modal/criar-modal.module';
+import { CreateaBookService } from 'src/services/crerate-book/createBook.service';
 
 @NgModule({
   declarations: [
@@ -30,7 +34,9 @@ import { CriarModalModule } from './components/criar-modal/criar-modal.module';
   ],
   providers: [
     HomeServices,
-    AtualizaBookService
+    AtualizaBookService,
+    DeleteBookService,
+    CreateaBookService
   ],
   bootstrap: [AppComponent]
 })

@@ -12,6 +12,8 @@ export class HomeComponent {
   protected books: Book[] = [];
   protected mostrar: boolean = false;
   protected formSearchBook!: FormGroup;
+  protected booksLength!: number;
+  protected lerMais!: any;
   protected loading: boolean = true;
   protected notSearchBook: boolean = false;
 
@@ -58,6 +60,7 @@ export class HomeComponent {
     this.homeSvc.getAll('/book').subscribe({
       next: (data) => {
         this.books = data;
+        this.booksLength = this.books.length;
         this.loading = false;
         this.notSearchBook = false;
       },
@@ -66,6 +69,14 @@ export class HomeComponent {
         alert(err.message);
       },
     })
+  }
+
+  protected mostarMais(idBook: number) {
+    this.lerMais = idBook;
+  }
+
+  protected mostarMenos(idBook: number) {
+    this.lerMais = 0;
   }
 
 }
